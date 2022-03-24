@@ -42,5 +42,21 @@ GLuint CShader::GetId() const noexcept {
     return mId;
 }
 
+std::string CShader::GetInfoLog() const noexcept {
+    std::string info_log;
+
+    GLint info_log_length = 0;
+    glGetShaderiv(mId, GL_INFO_LOG_LENGTH, &info_log_length);
+
+    if (info_log_length > 0) {
+        auto info_log_raw = new char[info_log_length];
+        glGetShaderInfoLog(mId, info_log_length, nullptr, info_log_raw);
+
+        info_log.append(info_log_raw);
+    }
+
+    return info_log;
+}
+
 }  // namespace snowflake::shader
 

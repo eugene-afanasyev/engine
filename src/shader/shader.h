@@ -19,10 +19,11 @@ class CShader {
     void Compile() const;
     void Delete() const;
 
-    [[nodiscard]] GLenum GetType()    const noexcept;
-    [[nodiscard]] GLuint GetId()      const noexcept;
+    GLenum GetType()    const noexcept;
+    GLuint GetId()      const noexcept;
 
-    [[nodiscard]] bool IsCompiled() const noexcept;
+    bool IsCompiled() const noexcept;
+    std::string GetInfoLog() const noexcept;
 
  private:
     GLuint mId;
