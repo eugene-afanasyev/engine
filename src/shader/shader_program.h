@@ -20,7 +20,11 @@ class CShaderProgram {
 
     void Link() const noexcept;
 
-    [[nodiscard]] GLuint GetId() const noexcept;
+    bool IsCompiled() const noexcept;
+
+    std::string GetInfoLog() const noexcept;
+
+    GLuint GetId() const noexcept;
     void SetId(GLuint);
 
  private:
