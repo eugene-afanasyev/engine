@@ -20,7 +20,9 @@ class CShaderProgram {
 
     void Link() const noexcept;
 
-    bool IsCompiled() const noexcept;
+    void Use() const noexcept;
+
+    bool IsLinked() const noexcept;
 
     std::string GetInfoLog() const noexcept;
 

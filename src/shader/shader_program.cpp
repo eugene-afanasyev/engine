@@ -24,11 +24,11 @@ void CShaderProgram::Link() const noexcept {
     glLinkProgram(mId);
 }
 
-bool CShaderProgram::IsCompiled() const noexcept {
-    GLint is_compiled = 0;
-    glGetShaderiv(mId, GL_COMPILE_STATUS, &is_compiled);
+bool CShaderProgram::IsLinked() const noexcept {
+    GLint is_linked = 0;
+    glGetProgramiv(mId,  GL_LINK_STATUS, &is_linked);
 
-    return is_compiled;
+    return is_linked;
 }
 
 std::string CShaderProgram::GetInfoLog() const noexcept {
@@ -45,6 +45,10 @@ std::string CShaderProgram::GetInfoLog() const noexcept {
     }
 
     return info_log;
+}
+
+void CShaderProgram::Use() const noexcept {
+    glUseProgram(mId);
 }
 
 }  // namespace snowflake::shader
