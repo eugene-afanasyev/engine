@@ -5,17 +5,17 @@
 
 namespace snowflake::utility {
 
-CResourceManager::CResourceManager() {
+CResourceSystem::CResourceSystem() {
     resources_path_ = "../res";
     shaders_path_ = resources_path_ + "/shaders/";
 }
 
-CResourceManager &CResourceManager::instance() {
-    static CResourceManager instance;
+CResourceSystem &CResourceSystem::instance() {
+    static CResourceSystem instance;
     return instance;
 }
 
-std::string CResourceManager::GetShaderSrc(const std::string& a_name) const noexcept {
+std::string CResourceSystem::GetShaderSrc(const std::string& a_name) const noexcept {
     std::ifstream fin(shaders_path_ + a_name);
     std::stringstream stream;
     stream << fin.rdbuf();

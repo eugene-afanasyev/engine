@@ -42,7 +42,7 @@ int main()
         return -1;
     }
 
-    CShader vertexShader(CResourceManager::instance().GetShaderSrc("vertex.glsl"), GL_VERTEX_SHADER);
+    CShader vertexShader(CResourceSystem::instance().GetShaderSrc("vertex.glsl"), GL_VERTEX_SHADER);
     vertexShader.Compile();
 
     char infoLog[512];
@@ -52,7 +52,7 @@ int main()
         std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
     }
 
-    CShader fragmentShader(CResourceManager::instance().GetShaderSrc("frag.glsl"), GL_FRAGMENT_SHADER);
+    CShader fragmentShader(CResourceSystem::instance().GetShaderSrc("frag.glsl"), GL_FRAGMENT_SHADER);
     fragmentShader.Compile();
 
     if (!fragmentShader.IsCompiled())

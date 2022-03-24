@@ -6,10 +6,10 @@
 
 namespace snowflake::utility {
 
-class CResourceManager {
+class CResourceSystem {
  public:
-    CResourceManager();
-    static CResourceManager& instance();
+    CResourceSystem();
+    static CResourceSystem& instance();
 
     [[nodiscard]] std::string GetShaderSrc(const std::string& a_name) const noexcept;
 

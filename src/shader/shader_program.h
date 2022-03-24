@@ -15,8 +15,10 @@ class CShaderProgram {
 
     ~CShaderProgram() = default;
 
-    void AttachShader(const CShader&) noexcept;
-    void DetachShader(const CShader&) noexcept;
+    void AttachShader(const CShader&) const noexcept;
+    void DetachShader(const CShader&) const noexcept;
+
+    void Link() const noexcept;
 
     [[nodiscard]] GLuint GetId() const noexcept;
     void SetId(GLuint);
