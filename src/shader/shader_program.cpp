@@ -1,5 +1,7 @@
 #include "shader_program.h"
 
+#include <glm/gtc/type_ptr.hpp>
+
 namespace snowflake::shader {
 
 CShaderProgram::CShaderProgram(GLuint aId) : mId(aId) {}
@@ -49,6 +51,11 @@ std::string CShaderProgram::GetInfoLog() const noexcept {
 
 void CShaderProgram::Use() const noexcept {
     glUseProgram(mId);
+}
+
+void CShaderProgram::SetUniformMat4(const std::string &aName, const glm::mat4 &aMatrix, GLsizei aCount) const {
+    auto location = glGetUniformLocation(mId, aName.c_str());
+    glUniformMatrix4fv(location, aCount, false, glm::value_ptr(aMatrix));
 }
 
 }  // namespace snowflake::shader

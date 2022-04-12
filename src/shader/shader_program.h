@@ -3,6 +3,8 @@
 
 #include "shader.h"
 
+#include <glm/mat4x4.hpp>
+
 namespace snowflake::shader {
 
 class CShaderProgram {
@@ -28,6 +30,8 @@ class CShaderProgram {
 
     GLuint GetId() const noexcept;
     void SetId(GLuint);
+
+    void SetUniformMat4(const std::string& aName, const glm::mat4& aMatrix, GLsizei aCount = 0) const;
 
  private:
     GLuint mId;
