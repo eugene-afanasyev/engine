@@ -1,12 +1,11 @@
 #include "shader.h"
+#include <iostream>
 
 namespace snowflake::shader {
 
 CShader::CShader(const ShaderSourceType& aSrc, GLenum aType) {
     mId = glCreateShader(aType);
-
-    auto raw_src = new char[aSrc.size()];
-    aSrc.copy(raw_src, aSrc.size());
+    const char* raw_src = aSrc.c_str();
 
     glShaderSource(mId, 1, &raw_src, nullptr);
 }
