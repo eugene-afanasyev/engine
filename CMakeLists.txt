@@ -8,7 +8,7 @@ find_package(glfw3 3.3 REQUIRED)
 
 add_subdirectory(./third-party/glad/)
 
-add_executable(engine main.cpp src/shader/shader.cpp src/shader/shader.h src/shader/shader_program.cpp src/shader/shader_program.h src/resource_manager.cpp src/resource_manager.h)
+add_executable(engine main.cpp src/shader/shader.cpp src/shader/shader.h src/shader/shader_program.cpp src/shader/shader_program.h src/resource_system.cpp src/resource_system.h src/camera.cpp src/camera.h)
 
 include_directories(src)
 include_directories(third-party/stb-image)
