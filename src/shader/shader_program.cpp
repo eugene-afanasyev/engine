@@ -53,9 +53,14 @@ void CShaderProgram::Use() const noexcept {
     glUseProgram(mId);
 }
 
-void CShaderProgram::SetUniformMat4(const std::string &aName, const glm::mat4 &aMatrix, GLsizei aCount) const {
-    auto location = glGetUniformLocation(mId, aName.c_str());
+void CShaderProgram::SetUniformMat4(const char* aName, const glm::mat4 &aMatrix, GLsizei aCount) const {
+    auto location = glGetUniformLocation(mId, aName);
     glUniformMatrix4fv(location, aCount, false, glm::value_ptr(aMatrix));
+}
+
+void CShaderProgram::SetUniformInt(const char* aName, GLint aVal) const {
+    auto location = glGetUniformLocation(mId, aName);
+    glUniform1i(location, aVal);
 }
 
 }  // namespace snowflake::shader

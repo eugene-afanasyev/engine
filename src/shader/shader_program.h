@@ -31,7 +31,8 @@ class CShaderProgram {
     GLuint GetId() const noexcept;
     void SetId(GLuint);
 
-    void SetUniformMat4(const std::string& aName, const glm::mat4& aMatrix, GLsizei aCount = 0) const;
+    void SetUniformMat4(const char* aName, const glm::mat4& aMatrix, GLsizei aCount = 1) const;
+    void SetUniformInt(const char* aName, GLint aVal) const;
 
  private:
     GLuint mId;
