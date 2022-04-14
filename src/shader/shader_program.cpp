@@ -40,7 +40,7 @@ std::string CShaderProgram::GetInfoLog() const noexcept {
     glGetProgramiv(mId, GL_INFO_LOG_LENGTH, &info_log_length);
 
     if (info_log_length > 0) {
-        auto info_log_raw = new char[info_log_length];
+        auto info_log_raw = new char[info_log_length + 1];
         glGetProgramInfoLog(mId, info_log_length, nullptr, info_log_raw);
 
         info_log.append(info_log_raw);
