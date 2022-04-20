@@ -22,16 +22,23 @@ class CCamera {
     const mat4& GetView() const;
     const mat4& GetCurrentView();
 
+    double GetRotationSens() const;
+
     void Move(const vec3& aVec);
 
     void SetTarget(const vec3& aTarget);
     void SetPosition(const vec3& aPos);
+    void Rotate(double aYaw, double aPitch);
 
  private:
     vec3 mPosition;
     vec3 mTarget;
     vec3 mFront;
     vec3 mUp;
+
+    double mPitch;
+    double mYaw;
+    double mRotationSens;
 
     mat4 mView;
 };
